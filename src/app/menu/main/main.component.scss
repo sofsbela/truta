@@ -1,0 +1,76 @@
+* {
+  background-color: #324433;
+}
+
+.main-menu {
+  text-align: center;
+  padding: 3rem 6rem;
+
+  #logo {
+    width: 20%;
+  }
+
+  h1 {
+    font-family: "Whisper", sans-serif;
+    font-size: 100px;
+    padding: 3rem 0;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    line-height: 1rem;
+
+    span {
+      padding: 3rem;
+    }
+  }
+  .plates {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    padding: 5rem 0;
+    justify-content: space-around;
+    flex: 1 1 1;
+
+    .plate {
+      width: 50%;
+      padding: 2rem 0.5rem;
+
+      #plate {
+        height: 300px;
+        animation: 400s rotate360 infinite linear;
+        background-color: transparent;
+      }
+
+      h5 {
+        font-family: "Whisper", sans-serif;
+        font-size: 60px;
+        font-weight: 500;
+        padding: 1rem 0;
+      }
+
+      p {
+        width: 50%;
+        margin: auto;
+      }
+
+      .allergies {
+        #allergy {
+          height: 2rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate360 {
+  to {
+    transform: rotate(3600deg);
+  }
+}

@@ -1,5 +1,12 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { Observable } from 'rxjs';
 import { ScrollService } from '../services/scroll.service';
 
 @Component({
@@ -7,18 +14,8 @@ import { ScrollService } from '../services/scroll.service';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
 })
-export class HomepageComponent {
-  constructor(private scrollService: ScrollService) {
-    this.scrollService.windowScroll$.subscribe((scrollPosition) => {
-      let elementHeroText = document.getElementById('hero-text');
-      let elementNavbar = document.getElementById('navbar');
-
-      elementHeroText!.style.display = scrollPosition < 1200 ? 'block' : 'none';
-      elementNavbar!.style.backgroundColor =
-        scrollPosition > 500 ? 'rgba(0, 0, 0, 0.767)' : 'rgba(0, 0, 0, 0.05)';
-      elementNavbar!.style.top = scrollPosition > 500 ? '0' : '5%';
-    });
-  }
+export class HomepageComponent implements OnInit {
+  scrollPosition$!: Observable<number>;
 
   items: MenuItem[] = [];
 
@@ -44,14 +41,30 @@ export class HomepageComponent {
     },
   ];
 
+  screenHeight: number;
+
+  constructor(private scrollService: ScrollService) {
+    this.screenHeight = window.innerHeight;
+  }
+
   ngOnInit() {
+    this.scrollPosition$ = this.scrollService.windowScroll$;
+
     this.items = [
       {
         label: 'Sobre nós',
-        items: [{ label: 'A nossa história' }, { label: 'A nossa equipa' }],
+        items: [
+          { label: 'A nossa história', routerLink: ['/history'] },
+          { label: 'A nossa equipa', routerLink: ['/team'] },
+        ],
       },
       {
         label: 'Menu',
+        items: [
+          { label: 'Pratos Principais', routerLink: ['/menu/main'] },
+          { label: 'Bebidas' },
+          { label: 'Sobremesas' },
+        ],
       },
       {
         label: 'Novidades',

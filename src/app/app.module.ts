@@ -15,9 +15,22 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { RippleModule } from 'primeng/ripple';
 import { FooterComponent } from './footer/footer.component';
 import { AnimateModule } from 'primeng/animate';
+import { HistoryComponent } from './history/history.component';
+import { TeamComponent } from './team/team.component';
+import { MenuComponent } from './menu/menu.component';
+import { MainComponent } from './menu/main/main.component';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
-  declarations: [AppComponent, HomepageComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    HomepageComponent,
+    FooterComponent,
+    HistoryComponent,
+    TeamComponent,
+    MenuComponent,
+    MainComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,6 +44,7 @@ import { AnimateModule } from 'primeng/animate';
     RadioButtonModule,
     RippleModule,
     AnimateModule,
+    TooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

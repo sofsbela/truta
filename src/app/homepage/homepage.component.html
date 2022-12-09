@@ -1,31 +1,67 @@
-<div id="homepage">
-  <p-menubar [model]="items" id="navbar" styleClass="navbar">
-    <ng-template pTemplate="start">
-      <img
-        src="../../assets/logo/360_F_125604629_e0WVksDZjO6kRfxNtfWQnWmo0muA7TUb-removebg-preview.png"
-        height="40"
-        class="mr-2"
-      />
-    </ng-template>
-    <ng-template pTemplate="end">
-      <button
-        pButton
-        pRipple
-        type="button"
-        label="Faça uma reserva!"
-        class="p-button-outlined p-button-rounded"
-      ></button>
-    </ng-template>
-  </p-menubar>
+<ng-container *ngIf="{ position: this.scrollPosition$ | async } as scroll">
+  <div id="homepage" *ngIf="scroll.position !== null">
+    <p-menubar
+      [model]="items"
+      id="navbar"
+      styleClass="navbar"
+      [ngClass]="{ scrollStyle: scroll.position > this.screenHeight }"
+    >
+      <ng-template pTemplate="start">
+        <img src="../../assets/logo/logo.png" height="40" class="mr-2" />
+      </ng-template>
+      <ng-template pTemplate="end">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Faça uma reserva!"
+          class="p-button-outlined p-button-rounded"
+        ></button>
+      </ng-template>
+    </p-menubar>
 
-  <div id="hero" class="hero-container">
-    <video playsinline muted autoplay loop width="100%" #videoRef>
-      <source src="../../assets/hero-video/video.mp4" type="video/mp4" />
-    </video>
+    <div id="hero" class="hero-container">
+      <video playsinline muted autoplay loop width="100%" #videoRef>
+        <source src="../../assets/hero-video/video.mp4" type="video/mp4" />
+      </video>
 
-    <div class="hero-text" id="hero-text">
-      <h1>Bem-vindo ao <span> Truta </span>!</h1>
-      <h2>Explore e delicie-se!</h2>
+      <div
+        class="hero-text"
+        id="hero-text"
+        [ngClass]="{ hidden: scroll.position > this.screenHeight }"
+      >
+        <h1>Bem-vindo ao <span> Truta </span>!</h1>
+        <h2>Explore e delicie-se!</h2>
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Menu"
+          class="p-button-outlined p-button-rounded"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Reserva"
+          class="p-button-outlined p-button-rounded"
+        ></button>
+      </div>
+    </div>
+
+    <div id="passion" class="passion">
+      <h2 id="main-text">A nossa Paixão!</h2>
+      <p>
+        O que realmente nos apaixona é o momento da refeição, todo o ritual que
+        o caracteriza. Partilhar uma refeição deliciosa com alguém de quem
+        gostamos é uma maneira de criar laços e memórias que durarão toda a
+        vida. A melhor ideia é uma refeição deliciosa com uma companhia
+        maravilhosa e muitas histórias, segredos e gargalhadas. Damos o toque
+        diferenciador a qualquer momento de confraternização. Pratos
+        intensamente saborosos, com estrutura e tão agradáveis quanto o riso de
+        um amigo. Gostaríamos muito de preparar refeições para si sempre que
+        quiser.
+      </p>
       <button
         pButton
         pRipple
@@ -33,114 +69,90 @@
         label="Menu"
         class="p-button-outlined p-button-rounded"
       ></button>
-      <button
-        pButton
-        pRipple
-        type="button"
-        label="Reserva"
-        class="p-button-outlined p-button-rounded"
-      ></button>
-    </div>
-  </div>
 
-  <div id="passion" class="passion">
-    <h2 id="main-text">A nossa Paixão!</h2>
-    <p>
-      O que realmente nos apaixona é o momento da refeição, todo o ritual que o
-      caracteriza. Partilhar uma refeição deliciosa com alguém de quem gostamos
-      é uma maneira de criar laços e memórias que durarão toda a vida. A melhor
-      ideia é uma refeição deliciosa com uma companhia maravilhosa e muitas
-      histórias, segredos e gargalhadas. Damos o toque diferenciador a qualquer
-      momento de confraternização. Pratos intensamente saborosos, com estrutura
-      e tão agradáveis quanto o riso de um amigo. Gostaríamos muito de preparar
-      refeições para si sempre que quiser.
-    </p>
-    <button
-      pButton
-      pRipple
-      type="button"
-      label="Menu"
-      class="p-button-outlined p-button-rounded"
-    ></button>
-
-    <p-carousel
-      [value]="passionimages"
-      styleClass="custom-carousel"
-      [numVisible]="3"
-      [numScroll]="1"
-      [circular]="true"
-      [autoplayInterval]="3000"
-      [responsiveOptions]="responsiveOptions"
-      [showIndicators]="false"
-    >
-      <ng-template let-image pTemplate="item">
-        <div class="product-item">
-          <div class="product-item-content">
-            <div class="mb-3">
-              <img src="{{ image.image }}" alt="image" class="product-image" />
+      <p-carousel
+        [value]="passionimages"
+        styleClass="custom-carousel"
+        [numVisible]="3"
+        [numScroll]="1"
+        [circular]="true"
+        [autoplayInterval]="3000"
+        [responsiveOptions]="responsiveOptions"
+        [showIndicators]="false"
+      >
+        <ng-template let-image pTemplate="item">
+          <div class="product-item">
+            <div class="product-item-content">
+              <div class="mb-3">
+                <img
+                  src="{{ image.image }}"
+                  alt="image"
+                  class="product-image"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </ng-template>
-    </p-carousel>
-  </div>
+        </ng-template>
+      </p-carousel>
+    </div>
 
-  <div class="outterstyle" id="style">
-    <h2>O nosso Estilo!</h2>
+    <div class="outterstyle" id="style">
+      <h2>O nosso Estilo!</h2>
 
-    <div class="box">
-      <div class="card">
-        <div class="imgBx">
-          <img src="../../assets/styleimages/food.jpg" alt="images" />
+      <div class="box">
+        <div class="card">
+          <div class="imgBx">
+            <img src="../../assets/styleimages/food.jpg" alt="images" />
+          </div>
+          <div class="details">
+            <h2>O nosso estilo de<br /><span>Comida</span></h2>
+          </div>
         </div>
-        <div class="details">
-          <h2>O nosso estilo de<br /><span>Comida</span></h2>
-        </div>
-      </div>
 
-      <div class="card">
-        <div class="imgBx">
-          <img src="../../assets/styleimages/wine.jpg" alt="images" />
+        <div class="card">
+          <div class="imgBx">
+            <img src="../../assets/styleimages/wine.jpg" alt="images" />
+          </div>
+          <div class="details">
+            <h2>O nosso estilo de<br /><span>Bebida</span></h2>
+          </div>
         </div>
-        <div class="details">
-          <h2>O nosso estilo de<br /><span>Bebida</span></h2>
-        </div>
-      </div>
 
-      <div class="card">
-        <div class="imgBx">
-          <img src="../../assets/styleimages/dessert.jpg" alt="images" />
-        </div>
-        <div class="details">
-          <h2>O nosso estilo de<br /><span>Sobremesa</span></h2>
+        <div class="card">
+          <div class="imgBx">
+            <img src="../../assets/styleimages/dessert.jpg" alt="images" />
+          </div>
+          <div class="details">
+            <h2>O nosso estilo de<br /><span>Sobremesa</span></h2>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="contacts-map" id="contacts">
-    <div class="contacts">
-      <h3>Localização:</h3>
-      <span>Porto, Portugal</span>
-      <h3>Horário:</h3>
-      <span>De terça a sábado, 19h-00h</span>
-      <h3>Contacto Telefónico:</h3>
-      <span>919999999</span>
-      <h3>Email:</h3>
-      <span>trutaporto@truta.com</span>
-    </div>
+    <div class="contacts-map" id="contacts">
+      <div class="contacts">
+        <h3>Localização:</h3>
+        <span>Porto, Portugal</span>
+        <h3>Horário:</h3>
+        <span>De terça a sábado, 19h-00h</span>
+        <h3>Contacto Telefónico:</h3>
+        <span>919999999</span>
+        <h3>Email:</h3>
+        <span>trutaporto@truta.com</span>
+      </div>
 
-    <div class="map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12106.933399101055!2d-7.9048306!3d40.65780795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd23364e135acd4d%3A0x17251fd30e8db9dd!2sArom%C3%A1tico%2054!5e0!3m2!1spt-PT!2spt!4v1670238046706!5m2!1spt-PT!2spt"
-        width="400"
-        height="300"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12106.933399101055!2d-7.9048306!3d40.65780795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd23364e135acd4d%3A0x17251fd30e8db9dd!2sArom%C3%A1tico%2054!5e0!3m2!1spt-PT!2spt!4v1670238046706!5m2!1spt-PT!2spt"
+          width="400"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </div>
+    <app-footer></app-footer>
   </div>
-  <app-footer></app-footer>
-</div>
+</ng-container>

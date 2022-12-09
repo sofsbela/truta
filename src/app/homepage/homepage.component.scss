@@ -5,13 +5,6 @@
   z-index: 20;
 }
 
-.passion,
-.outterstyle {
-  min-height: 100%;
-  width: 100%;
-  z-index: 1000;
-}
-
 // NAVBAR
 p-menubar {
   top: 5%;
@@ -19,6 +12,7 @@ p-menubar {
   z-index: 99;
   width: 100%;
   position: fixed;
+  background-color: rgba(0, 0, 0, 0.05);
 
   img {
     margin: 0 3rem;
@@ -104,6 +98,8 @@ p-menubar {
   background-color: #324433;
   margin-top: 100vh;
   text-align: center;
+  padding: 5rem 0;
+
   h2 {
     font-family: "Whisper", sans-serif;
     font-size: 60px;
@@ -145,6 +141,8 @@ p-menubar {
 // OUR STYLE
 #style {
   background-color: #324433;
+  padding-bottom: 3rem;
+
   h2 {
     font-family: "Whisper", sans-serif;
     font-size: 60px;
@@ -154,16 +152,15 @@ p-menubar {
   }
 
   .box {
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    grid-gap: 15px;
+    grid-gap: 2rem;
     padding: 2rem 1rem;
   }
   .card {
     position: relative;
-    width: 300px;
-    height: 350px;
+    min-height: 450px;
+    width: 70%;
     background: rgb(255, 255, 255);
     margin: 1rem auto;
     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
@@ -276,5 +273,20 @@ p-menubar {
 
   .map {
     z-index: 1;
+  }
+}
+
+.scrollStyle {
+  background-color: rgba(0, 0, 0, 0.767);
+  top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .box {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
