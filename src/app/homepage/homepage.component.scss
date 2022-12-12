@@ -4,50 +4,6 @@
   width: 100%;
   z-index: 20;
 }
-:host ::ng-deep .p-dialog {
-  .p-dialog-content {
-    display: flex;
-    background-color: #324433;
-    #reservation-image {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-    }
-
-    label {
-      display: block;
-      margin: 1.5rem 0 1.5rem 0;
-      text-align: center;
-    }
-  }
-  .p-dialog-header {
-    background-color: #324433;
-    color: white;
-  }
-
-  .form {
-    text-align: center;
-    color: white;
-    margin: auto;
-    padding: 0 2rem;
-  }
-
-  .p-dialog-footer {
-    background-color: #324433;
-  }
-
-  .p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-up,
-  .p-button.p-inputnumber-button-down {
-    background: #81c784;
-    color: #324433;
-  }
-
-  .p-calendar .p-inputtext,
-  .p-inputtext {
-    background: white;
-    color: #324433;
-  }
-}
 
 // NAVBAR
 p-menubar {
@@ -330,8 +286,16 @@ p-menubar {
   display: none;
 }
 
-@media (min-width: 600px) {
-  .box {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 960px) {
+  p-menubar {
+    button {
+      display: none;
+    }
   }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
 }

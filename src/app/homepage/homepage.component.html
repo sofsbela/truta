@@ -16,70 +16,8 @@
           type="button"
           label="Faça uma reserva!"
           class="p-button-outlined p-button-rounded"
-          (click)="showResponsiveDialog()"
+          (click)="showDialog()"
         ></button>
-        <p-dialog
-          header="Fazer reserva"
-          [(visible)]="displayResponsive"
-          [breakpoints]="{ '960px': '75vw' }"
-          [style]="{ width: '55vw' }"
-          [draggable]="false"
-          [resizable]="false"
-          id="reservation"
-        >
-          <div class="image">
-            <img
-              src="../../assets/reservation.jpg"
-              alt="plate"
-              id="reservation-image"
-            />
-          </div>
-          <div class="form">
-            <div class="date">
-              <label for="date" style="display: block">Data:</label>
-              <p-calendar
-                [(ngModel)]="value"
-                dateFormat="dd.mm.yy"
-                inputId="date"
-                appendTo="body"
-              ></p-calendar>
-            </div>
-            <div class="people">
-              <label for="vertical" style="display: block"
-                >Número de pessoas:</label
-              >
-              <p-inputNumber
-                [(ngModel)]="valuePerson"
-                [showButtons]="true"
-                buttonLayout="horizontal"
-                inputId="vertical"
-                decrementButtonClass="p-button-secondary"
-                incrementButtonClass="p-button-secondary"
-                incrementButtonIcon="pi pi-plus"
-                decrementButtonIcon="pi pi-minus"
-              >
-              </p-inputNumber>
-            </div>
-            <div class="time">
-              <label for="time">Hora de chegada:</label>
-              <p-calendar
-                [(ngModel)]="value"
-                [timeOnly]="true"
-                inputId="time"
-                appendTo="body"
-              ></p-calendar>
-            </div>
-          </div>
-
-          <ng-template pTemplate="footer">
-            <p-button
-              (click)="displayResponsive = false"
-              label="Pedir reserva"
-              icon="pi pi-check"
-              styleClass="p-button-text"
-            ></p-button>
-          </ng-template>
-        </p-dialog>
       </ng-template>
     </p-menubar>
 
@@ -218,5 +156,9 @@
       </div>
     </div>
     <app-footer></app-footer>
+    <app-reservation-dialog
+      [display]="display"
+      (displayChange)="(onDialogClose)"
+    ></app-reservation-dialog>
   </div>
 </ng-container>

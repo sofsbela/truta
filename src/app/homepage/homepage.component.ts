@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { Dialog, DialogModule } from 'primeng/dialog';
 import { Observable } from 'rxjs';
 import { ScrollService } from '../services/scroll.service';
 
@@ -19,8 +20,7 @@ export class HomepageComponent implements OnInit {
 
   displayResponsive: boolean = false;
 
-  value: Date | undefined;
-  valuePerson: number = 1;
+  display = false;
 
   responsiveOptions = [
     {
@@ -91,7 +91,11 @@ export class HomepageComponent implements OnInit {
     ];
   }
 
-  showResponsiveDialog() {
-    this.displayResponsive = true;
+  showDialog() {
+    this.display = true;
+  }
+
+  onDialogClose(event: boolean) {
+    this.display = event;
   }
 }

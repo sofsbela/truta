@@ -25,6 +25,7 @@ import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ReservationDialogComponent } from './components/reservation-dialog/reservation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     MenuComponent,
     MainComponent,
     WineComponent,
+    ReservationDialogComponent,
   ],
   imports: [
     BrowserModule,

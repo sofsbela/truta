@@ -48,3 +48,23 @@ button {
     object-fit: cover;
   }
 }
+
+@media (max-width: 1150px) {
+  button {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    padding: 3rem 0 1rem 0 !important;
+  }
+  p {
+    padding: 3rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+}

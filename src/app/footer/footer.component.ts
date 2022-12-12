@@ -6,7 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
+  display = false;
+
   topFunction(): void {
     window.scrollTo(0, 0);
+  }
+
+  showDialog() {
+    this.display = true;
+  }
+
+  onDialogClose(event: boolean) {
+    this.display = event;
   }
 }

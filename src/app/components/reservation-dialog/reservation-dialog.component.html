@@ -1,0 +1,60 @@
+<p-dialog
+  header="Fazer reserva"
+  [(visible)]="display"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '55vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  id="reservation"
+>
+  <div class="image">
+    <img
+      src="../../assets/reservation.jpg"
+      alt="plate"
+      id="reservation-image"
+    />
+  </div>
+  <div class="form">
+    <div class="form-piece">
+      <label for="date" style="display: block">Data:</label>
+      <p-calendar
+        [(ngModel)]="value"
+        dateFormat="dd.mm.yy"
+        inputId="date"
+        appendTo="body"
+      ></p-calendar>
+    </div>
+    <div class="form-piece">
+      <label for="vertical" style="display: block">Número de pessoas:</label>
+      <p-inputNumber
+        [(ngModel)]="valuePerson"
+        [showButtons]="true"
+        buttonLayout="horizontal"
+        inputId="vertical"
+        decrementButtonClass="p-button-secondary"
+        incrementButtonClass="p-button-secondary"
+        incrementButtonIcon="pi pi-plus"
+        decrementButtonIcon="pi pi-minus"
+      >
+      </p-inputNumber>
+    </div>
+    <div class="form-piece">
+      <label for="time">Hora de chegada:</label>
+      <p-calendar
+        [(ngModel)]="value"
+        [timeOnly]="true"
+        inputId="time"
+        appendTo="body"
+      ></p-calendar>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      (click)="onClose()"
+      label="Pedir reserva"
+      icon="pi pi-check"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

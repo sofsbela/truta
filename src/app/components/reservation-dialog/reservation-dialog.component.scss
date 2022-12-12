@@ -1,0 +1,47 @@
+:host ::ng-deep .p-dialog {
+  .p-dialog-content {
+    display: flex;
+    background-color: #324433;
+    #reservation-image {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+    }
+
+    label {
+      display: block;
+      text-align: center;
+    }
+  }
+  .p-dialog-header {
+    background-color: #324433;
+    color: white;
+  }
+
+  .form {
+    text-align: center;
+    color: white;
+    margin: auto;
+    padding: 0 2rem;
+
+    .form-piece {
+      padding: 1rem 0;
+    }
+  }
+
+  .p-dialog-footer {
+    background-color: #324433;
+  }
+
+  .p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-up,
+  .p-button.p-inputnumber-button-down {
+    background: #81c784;
+    color: #324433;
+  }
+
+  .p-calendar .p-inputtext,
+  .p-inputtext {
+    background: white;
+    color: #324433;
+  }
+}
