@@ -13,7 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RippleModule } from 'primeng/ripple';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { AnimateModule } from 'primeng/animate';
 import { HistoryComponent } from './history/history.component';
 import { TeamComponent } from './team/team.component';
