@@ -295,6 +295,13 @@ p-menubar {
 }
 
 @media (max-width: 768px) {
+  .contacts {
+    text-align: center !important;
+    padding-left: 0 !important;
+  }
+  .map {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
