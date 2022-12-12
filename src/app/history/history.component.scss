@@ -1,5 +1,29 @@
 * {
-  background-color: #324433;
+  background-color: #ffd5c2;
+  color: #324433;
+}
+
+button {
+  color: rgb(132, 13, 13) !important;
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  height: 3rem;
+  transition-delay: 1s;
+  transition-property: display, content;
+
+  span {
+    color: rgb(132, 13, 13);
+    font-size: initial;
+    font-weight: 600;
+  }
+  &:hover span {
+    display: none;
+  }
+
+  &:hover:before {
+    content: "Voltar atrás!";
+  }
 }
 
 .about-us {
@@ -8,11 +32,11 @@
   }
   h2 {
     text-align: center;
-    padding: 3rem;
+    padding: 5rem;
   }
 
   p {
-    padding: 0 7rem;
+    padding: 0 10rem;
     text-align: center;
     line-height: 2rem;
     padding-bottom: 3rem;

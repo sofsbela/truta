@@ -16,7 +16,70 @@
           type="button"
           label="Faça uma reserva!"
           class="p-button-outlined p-button-rounded"
+          (click)="showResponsiveDialog()"
         ></button>
+        <p-dialog
+          header="Fazer reserva"
+          [(visible)]="displayResponsive"
+          [breakpoints]="{ '960px': '75vw' }"
+          [style]="{ width: '55vw' }"
+          [draggable]="false"
+          [resizable]="false"
+          id="reservation"
+        >
+          <div class="image">
+            <img
+              src="../../assets/reservation.jpg"
+              alt="plate"
+              id="reservation-image"
+            />
+          </div>
+          <div class="form">
+            <div class="date">
+              <label for="date" style="display: block">Data:</label>
+              <p-calendar
+                [(ngModel)]="value"
+                dateFormat="dd.mm.yy"
+                inputId="date"
+                appendTo="body"
+              ></p-calendar>
+            </div>
+            <div class="people">
+              <label for="vertical" style="display: block"
+                >Número de pessoas:</label
+              >
+              <p-inputNumber
+                [(ngModel)]="valuePerson"
+                [showButtons]="true"
+                buttonLayout="horizontal"
+                inputId="vertical"
+                decrementButtonClass="p-button-secondary"
+                incrementButtonClass="p-button-secondary"
+                incrementButtonIcon="pi pi-plus"
+                decrementButtonIcon="pi pi-minus"
+              >
+              </p-inputNumber>
+            </div>
+            <div class="time">
+              <label for="time">Hora de chegada:</label>
+              <p-calendar
+                [(ngModel)]="value"
+                [timeOnly]="true"
+                inputId="time"
+                appendTo="body"
+              ></p-calendar>
+            </div>
+          </div>
+
+          <ng-template pTemplate="footer">
+            <p-button
+              (click)="displayResponsive = false"
+              label="Pedir reserva"
+              icon="pi pi-check"
+              styleClass="p-button-text"
+            ></p-button>
+          </ng-template>
+        </p-dialog>
       </ng-template>
     </p-menubar>
 
@@ -68,6 +131,7 @@
         type="button"
         label="Menu"
         class="p-button-outlined p-button-rounded"
+        routerLink="/menu/main"
       ></button>
 
       <p-carousel
@@ -100,7 +164,7 @@
       <h2>O nosso Estilo!</h2>
 
       <div class="box">
-        <div class="card">
+        <div class="card" routerLink="/menu/main">
           <div class="imgBx">
             <img src="../../assets/styleimages/food.jpg" alt="images" />
           </div>
@@ -111,19 +175,19 @@
 
         <div class="card">
           <div class="imgBx">
-            <img src="../../assets/styleimages/wine.jpg" alt="images" />
-          </div>
-          <div class="details">
-            <h2>O nosso estilo de<br /><span>Bebida</span></h2>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="imgBx">
             <img src="../../assets/styleimages/dessert.jpg" alt="images" />
           </div>
           <div class="details">
             <h2>O nosso estilo de<br /><span>Sobremesa</span></h2>
+          </div>
+        </div>
+
+        <div class="card" routerLink="/menu/wine">
+          <div class="imgBx">
+            <img src="../../assets/styleimages/wine.jpg" alt="images" />
+          </div>
+          <div class="details">
+            <h2>O nosso estilo de<br /><span>Vinho</span></h2>
           </div>
         </div>
       </div>

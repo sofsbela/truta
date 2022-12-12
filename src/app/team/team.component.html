@@ -2,54 +2,39 @@
   <button
     pButton
     pRipple
-    icon="pi pi-arrow-left"
     type="button"
-    label="Voltar"
+    label=""
     class="p-button-outlined p-button-rounded"
     routerLink=""
-  ></button>
+  >
+    <span class="material-symbols-outlined"> close </span>
+  </button>
   <h2>A nossa equipa!</h2>
-
-  <div class="chef">
-    <div class="text">
-      <h3>"Lorem ipsum dolor sit amet, consectetur adipisicing elit"</h3>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, mollitia
-        molestiae magni sint porro omnis amet tempora. Iure recusandae laborum
-        minima expedita quaerat a repellendus. Vel officiis explicabo suscipit
-        ex.
-      </p>
-    </div>
-    <div class="photo">
-      <img src="../../assets/team/chef1.jpg" alt="Chef" />
-    </div>
-  </div>
-  <div class="chef" id="chef2">
-    <div class="text">
-      <h3>"Lorem ipsum dolor sit amet, consectetur adipisicing elit"</h3>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, mollitia
-        molestiae magni sint porro omnis amet tempora. Iure recusandae laborum
-        minima expedita quaerat a repellendus. Vel officiis explicabo suscipit
-        ex.
-      </p>
-    </div>
-    <div class="photo">
-      <img src="../../assets/team/chef2.jpg" alt="Chef" />
-    </div>
-  </div>
-  <div class="chef">
-    <div class="text">
-      <h3>"Lorem ipsum dolor sit amet, consectetur adipisicing elit"</h3>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, mollitia
-        molestiae magni sint porro omnis amet tempora. Iure recusandae laborum
-        minima expedita quaerat a repellendus. Vel officiis explicabo suscipit
-        ex.
-      </p>
-    </div>
-    <div class="photo">
-      <img src="../../assets/team/chef3.jpg" alt="Chef" />
-    </div>
-  </div>
+  <p-carousel
+    [value]="team"
+    [numVisible]="2"
+    [numScroll]="1"
+    [responsiveOptions]="responsiveOptions"
+  >
+    <ng-template let-photo pTemplate="item">
+      <div class="product-item">
+        <div class="product-item-content">
+          <div class="mb-3" id="photo">
+            <img src="{{ photo.image }}" alt="image" class="product-image" />
+          </div>
+          <div id="quote">
+            <h4 class="mb-1">{{ photo.quote }}</h4>
+          </div>
+          <div id="name">
+            <h5 class="mb-1">{{ photo.name }}</h5>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
 </div>
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+/>

@@ -5,6 +5,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MainComponent } from './menu/main/main.component';
 import { MenuComponent } from './menu/menu.component';
 import { TeamComponent } from './team/team.component';
+import { WineComponent } from './menu/wine/wine.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'menu/main',
     component: MainComponent,
+  },
+  {
+    path: 'menu/wine',
+    component: WineComponent,
   },
 ];
 

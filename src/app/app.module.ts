@@ -20,6 +20,11 @@ import { TeamComponent } from './team/team.component';
 import { MenuComponent } from './menu/menu.component';
 import { MainComponent } from './menu/main/main.component';
 import { TooltipModule } from 'primeng/tooltip';
+import { WineComponent } from './menu/wine/wine.component';
+import { DialogModule } from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/calendar';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,7 @@ import { TooltipModule } from 'primeng/tooltip';
     TeamComponent,
     MenuComponent,
     MainComponent,
+    WineComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +51,10 @@ import { TooltipModule } from 'primeng/tooltip';
     RippleModule,
     AnimateModule,
     TooltipModule,
+    DialogModule,
+    BrowserAnimationsModule,
+    CalendarModule,
+    InputNumberModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

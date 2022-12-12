@@ -1,0 +1,76 @@
+* {
+  background-color: #ffd5c2;
+  color: #324433;
+}
+
+button {
+  color: rgb(132, 13, 13) !important;
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  height: 3rem;
+  span {
+    color: rgb(132, 13, 13);
+    font-size: initial;
+    font-weight: 600;
+  }
+
+  &:hover span {
+    display: none;
+  }
+
+  &:hover:before {
+    content: "Voltar atrás!";
+  }
+}
+
+.wine-menu {
+  text-align: center;
+  padding: 3rem 6rem;
+
+  #logo {
+    width: 30%;
+  }
+
+  h1 {
+    font-family: "Whisper", sans-serif;
+    font-size: 100px;
+    padding: 3rem 0;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .wine {
+    .card-wine {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-bottom: 5rem;
+
+      img {
+        height: 20rem;
+      }
+    }
+
+    .description {
+      width: 50%;
+      .wine-description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 3rem;
+        span {
+          font-size: x-small;
+          color: white;
+        }
+
+        #price {
+          font-size: smaller;
+        }
+      }
+    }
+    #white {
+      flex-direction: row-reverse;
+    }
+  }
+}

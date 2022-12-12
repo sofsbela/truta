@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { ScrollService } from '../services/scroll.service';
@@ -22,6 +16,11 @@ export class HomepageComponent implements OnInit {
   passionimages: { image: string }[] = [];
 
   styleimages: { image: string }[] = [];
+
+  displayResponsive: boolean = false;
+
+  value: Date | undefined;
+  valuePerson: number = 1;
 
   responsiveOptions = [
     {
@@ -62,8 +61,8 @@ export class HomepageComponent implements OnInit {
         label: 'Menu',
         items: [
           { label: 'Pratos Principais', routerLink: ['/menu/main'] },
-          { label: 'Bebidas' },
           { label: 'Sobremesas' },
+          { label: 'Carta de Vinhos', routerLink: ['/menu/wine'] },
         ],
       },
       {
@@ -72,6 +71,8 @@ export class HomepageComponent implements OnInit {
       },
       {
         label: 'Contacte-nos',
+        url: '#contacts',
+        target: '_self',
       },
     ];
 
@@ -88,5 +89,9 @@ export class HomepageComponent implements OnInit {
       { image: '../assets/styleimages/img3.jpg' },
       { image: '../assets/styleimages/img4.jpg' },
     ];
+  }
+
+  showResponsiveDialog() {
+    this.displayResponsive = true;
   }
 }
