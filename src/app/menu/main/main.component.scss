@@ -1,0 +1,111 @@
+* {
+  background-color: #ffd5c2;
+  color: #324433;
+}
+
+button {
+  color: rgb(132, 13, 13) !important;
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  height: 3rem;
+  span {
+    color: rgb(132, 13, 13);
+    font-size: initial;
+    font-weight: 600;
+  }
+
+  &:hover span {
+    display: none;
+  }
+
+  &:hover:before {
+    content: "Voltar atrás!";
+  }
+}
+
+.main-menu {
+  text-align: center;
+  padding: 3rem 6rem;
+
+  #logo {
+    width: 30%;
+  }
+
+  h1 {
+    font-family: "Whisper", sans-serif;
+    font-size: 80px;
+    padding: 3rem 0;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .plates {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    padding: 2rem 0;
+    justify-content: space-around;
+    flex: 1 1 1;
+
+    .plate {
+      width: 50%;
+      padding: 2rem 0.5rem;
+
+      #plate {
+        height: 250px;
+        animation: 400s rotate360 infinite linear;
+        background-color: transparent;
+      }
+
+      h5 {
+        font-family: "Whisper", sans-serif;
+        font-size: 60px;
+        font-weight: 500;
+        padding: 1rem 0;
+      }
+
+      p {
+        width: 50%;
+        margin: auto;
+      }
+
+      .allergies {
+        #allergy {
+          height: 2rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate360 {
+  to {
+    transform: rotate(3600deg);
+  }
+}
+
+@media (max-width: 860px) {
+  h1 {
+    font-size: 50px !important;
+    padding: 3rem 0 0 0 !important;
+  }
+  .plates {
+    .plate {
+      width: auto !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+  }
+
+  @media (max-width: 480px) {
+    #logo {
+      width: 50% !important;
+    }
+    h1 {
+      font-size: 40px !important;
+    }
+  }
+}
